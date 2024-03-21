@@ -11,7 +11,7 @@ Este repositório tem como principal objetivo auxiliar no registro dos artefatos
 ## Membros do Grupo
 | Matrícula | Aluno | GitHub |
 | -- | -- | -- |
-| 211031584 | Ana Letícia Melo Pereira | |
+| 211031584 | Ana Letícia Melo Pereira |[<img src="https://github.com/analeticiaa.png" width="100px">](https://github.com/analeticiaa)<br/><p align="center"><a href="https://github.com/analeticiaa">analeticiaa</a></p> |
 | 190134224 | Artur Seppa Reiman ||
 | 202045965 | Augusto Campos Duarte | |
 | 180014412 | Cainã Valença de Freitas | [<img src="https://github.com/freitasc.png" width="100px">](https://github.com/freitasc)<br/><p align="center"><a href="https://github.com/freitasc">freitasc</a></p>  |
