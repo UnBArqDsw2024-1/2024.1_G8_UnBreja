@@ -1,6 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-- [Home](/docs)
+- [Sobre o Projeto](/README.md)
 - [Diretrizes](/docs/Diretrizes/Diretrizes.md)
 
 - **Base**

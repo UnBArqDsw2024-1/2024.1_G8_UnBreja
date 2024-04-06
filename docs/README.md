@@ -1,29 +1,32 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-Demais diretrizes constam no Moodle.
+# UnBreja 
 
-**!! Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(NomeDoProjeto)*. !!** 
+Código da Disciplina: FGA0208
 
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
+Número do Grupo: 08
 
-**!! *Exemplo de título correto: 2023.1_G1_ProjetoPandora*. !!** 
- 
- (Apague esses comentários)
+## Introdução
 
-# Nome do Projeto
+Este repositório tem como principal objetivo auxiliar no registro dos artefatos e resultados obtidos no desenvolvimento do projeto do Grupo 8 de Arquitetura e Desenho de Software da Universidade de Brasília (UnB-FGA) no semestre 2024.1.
 
-**Código da Disciplina**: FGA0208<br>
-**Número do Grupo**: XX<br>
+## Membros do Grupo
+| Matrícula | Aluno | GitHub |
+| -- | -- | -- |
+| 211031584 | Ana Letícia Melo Pereira |[<img src="https://github.com/analeticiaa.png" width="100px">](https://github.com/analeticiaa)<br/><p align="center"><a href="https://github.com/analeticiaa">analeticiaa</a></p> |
+| 190134224 | Artur Seppa Reiman |[<img src="https://github.com/artur-seppa.png" width="100px">](https://github.com/artur-seppa)<br/><p align="center"><a href="https://github.com/artur-seppa">artur-seppa</a></p>|
+| 202045965 | Augusto Campos Duarte |[<img src="https://github.com/Augcamp.png" width="100px">](https://github.com/Augcamp)<br/><p align="center"><a href="https://github.com/Augcamp">Augcamp</a></p> |
+| 180014412 | Cainã Valença de Freitas | [<img src="https://github.com/freitasc.png" width="100px">](https://github.com/freitasc)<br/><p align="center"><a href="https://github.com/freitasc">freitasc</a></p>  |
+| 200061216 | Cleber de Oliveira Brant |[<img src="https://github.com/Cleberbrant.png" width="100px">](https://github.com/Cleberbrant)<br/><p align="center"><a href="https://github.com/Cleberbrant">Cleberbrant</a></p> |
+| 222014984 | Edilberto Almeida Cantuária | [<img src="https://github.com/edilbertocantuaria.png" width="100px">](https://github.com/edilbertocantuaria)<br/><p align="center"><a href="https://github.com/edilbertocantuaria">edilbertocantuaria</a></p> |
+| 190086521 | Eduardo Rodrigues de Farias |[<img src="https://github.com/Eduardo-RFarias.png" width="100px">](https://github.com/Eduardo-RFarias)<br/><p align="center"><a href="https://github.com/Eduardo-RFarias">Eduardo-RFarias</a></p>|
+| 190033011 | Luana Souza Silva Torres |[<img src="https://github.com/luanatorress.png" width="100px">](https://github.com/luanatorress)<br/><p align="center"><a href="https://github.com/luanatorress">luanatorress</a></p> |
+| 200020625 | João Pedro Anacleto | [<img src="https://github.com/jpanacleto2.png" width="100px">](https://github.com/jpanacleto2)<br/><p align="center"><a href="https://github.com/jpanacleto2">jpanacleto2</a></p> |
+| 150154348 | Matheus Phillipo Silverio Silva |[<img src="https://github.com/MattSilverio.png" width="100px">](https://github.com/MattSilverio)<br/><p align="center"><a href="https://github.com/MattSilverio">MattSilverio</a></p> |
+| 200025791 | Pablo Guilherme de Jesus Batista Silva | [<img src="https://github.com/PabloGJBS.png" width="100px">](https://github.com/PabloGJBS)<br/><p align="center"><a href="https://github.com/PabloGJBS">PabloGJBS</a></p>|
+| 211045196 | Suzane Alves Duarte |[<img src="https://github.com/suzaneduarte.png" width="100px">](https://github.com/suzaneduarte)<br/><p align="center"><a href="https://github.com/suzaneduarte">suzaneduarte</a></p> |
+| 200044559 | Wesley Lira Carvalho |[<img src="https://github.com/Weslin-0101.png" width="100px">](https://github.com/Weslin-0101)<br/><p align="center"><a href="https://github.com/Weslin-0101">Weslin-0101</a></p>|
 
-## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
 
 ## Sobre 
-Contextualize, usando referências, links, e outros materiais como fontes.
 
 ## Screenshots Primeira Entrega <<FOCO: DSW(Base)>>
 Adicione 2 ou mais screenshots em termos de artefatos da Primeira Entrega.
