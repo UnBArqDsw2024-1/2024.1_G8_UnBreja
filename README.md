@@ -52,7 +52,7 @@ Para iniciar o site localmente, utilize o comando:
 docsify serve ./docs
 ```
 
-## Histórico de Versão
+## Controle de Versionamento
 |  Versão  | Data da alteração | Alteração | Responsável | Revisor | Data de revisão |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1.0 | 19/03 | Criação do documento e Inserção das primeiras informações | [Suzane Duarte](https://github.com/suzaneduarte) | Inserir | Inserir |

@@ -8,11 +8,13 @@
   - [Template de Reuniões](/Politicas/template-reunioes.md)
   - [Política de Versionamento e Referências](/Politicas/politica-versionamento.md)
 
+- **Reuniões**
+  - [Ata da Reunião 03/04/2024](/Reunioes/reuniao_03-04-2024.md)
 
 - **Base**
   - [1. Desenho de Software (Base)](/docs/Base/1.Base.md)
     - [1.1. Módulo Projeto Não Orientado a Abordagens Específicas](/docs/Base/1.1.AbordagemNaoEspecifica.md)
-    - [1.2. Módulo Processos/Metodologias/Abordagens](/docs/Base/1.2.ProcessosMetodologiasAbordagens.md)
+    - [1.2. Módulo Processos/Metodologias/Abordagens](/Base/1.2.ProcessosMetodologiasAbordagens.md)
     - [1.3. Participações - Base](/docs/Base/1.3.ParticipacoesBase.md)
 
 - **Modelagem**
