@@ -3,7 +3,7 @@
 - [Home](/docs)
 
 - **Políticas**
-  - - [Política de Contribuição](/Politicas/politica-contribuicao.md)
+  - [Política de Contribuição](/Politicas/politica-contribuicao.md)
   - [Política de Commits e Branching](/Politicas/politica-commits.md)
   - [Template de Reuniões](/Politicas/template-reunioes.md)
   - [Política de Versionamento e Referências](/Politicas/politica-versionamento.md)
