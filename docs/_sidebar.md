@@ -17,7 +17,7 @@
     - [1.2. Módulo Processos/Metodologias/Abordagens](/Base/1.2.ProcessosMetodologiasAbordagens.md)
     - [1.3. Participações - Base](/Base/1.3.ParticipacoesBase.md)
     - [1.4. Design sprint](/Base/1.4.DesignSprint.md)
-    - [1.4.1. Braimstorming](/Base/1.4.1.braimstorming.md)
+    - [1.4.1. Brainstorming](/Base/1.4.1.Brainstorming.md)
     - [1.4.2. Rich Picture](/Base/1.4.2.Richpicture.md)
     - [1.4.3. 5W2H](/Base/1.4.3.5w2h.md)
     - [1.4.4. MoSCoW](/Base/1.4.4.moscow.md)
