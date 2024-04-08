@@ -1,5 +1,5 @@
 
-![logo](_media/icon.svg)
+![logo]()
 
 # Conheça o UnBreja!
 
