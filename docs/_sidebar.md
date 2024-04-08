@@ -23,6 +23,7 @@
     - [1.4.4. MOSCOW](/Base/1.4.4.moscow.md)
     - [1.4.5. BPMN](/Base/1.4.5.bpmn.md)
     - [1.4.6. Protótipo](/Base/1.4.6.prototipo.md)
+      - [1.4.6.1. Entrevista](/Base/1.4.6.1.entrevista.md)
 
 - **Modelagem**
   - [2. Desenho de Software (Modelagem)](/docs/Modelagem/2.Modelagem.md)
