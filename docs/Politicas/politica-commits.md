@@ -38,4 +38,4 @@ A *branch* deve ter um nome descritivo e sucinto, deverá viver apenas enquanto 
 
 | Versão | Data da alteração |      Alteração      |                       Responsável                       | Revisor | Data de revisão |
 | :----: | :---------------: | :-----------------: | :-----------------------------------------------------: | :-----: | :-------------: |
-|  1.0   |    08/07/2024     | Criação do Artefato | [Eduardo Rodrigues](https://github.com/Eduardo-RFarias) |         |                 |
+|  1.0   |    08/07/2024     | Criação do Artefato | [Eduardo Rodrigues](https://github.com/Eduardo-RFarias) | [Suzane Duarte](https://github.com/suzaneduarte)         | 09/07/2024                 |

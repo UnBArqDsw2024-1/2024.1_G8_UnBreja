@@ -10,6 +10,7 @@
 
 - **Reuniões**
   - [Ata da Reunião 03/04/2024](/Reunioes/reuniao_03-04-2024.md)
+  - [Ata da Reunião 05/07/2024](/Reunioes/reuniao_05-07-2024.md)
   - [Ata da Reunião 08/07/2024](/Reunioes/reuniao_08-07-2024.md)
 
 - **Base**
