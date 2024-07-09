@@ -38,6 +38,7 @@
         - [2.1.2.1 Diagrama de Sequência](/Modelagem/2.1.2.1.DiagramaSequencia.md)
         - [2.1.2.2 Diagrama de Atividades](/Modelagem/2.1.2.2.DiagramaAtividades.md)
         - [2.1.2.3 Diagrama de Estados](/Modelagem/2.1.2.3.DiagramaEstados.md)
+      - [2.1.3. Diagrama de Banco de Dados](/Modelagem/2.1.3.DiagramaBancoDeDados.md)
     - [2.2. Participações - Modelagem](/Modelagem/2.2.Participacoes.md)
 
 - **Padrões de Projeto**
