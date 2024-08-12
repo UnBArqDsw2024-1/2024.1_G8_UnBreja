@@ -1,24 +1,31 @@
-import React from 'react';
+import React from "react";
 
-const Elipse = ({ x, y, width, height, angle }) => (
+const Elipse = () => (
   <svg
-    width={width}
-    height={height}
-    viewBox={`0 0 ${width} ${height}`}
+    width="600.51px"
+    height="556.03px"
+    viewBox="0 0 600.5162.06%"
     style={{
-      position: 'absolute',
-      left: x,
-      top: y,
-      transform: `rotate(${angle}deg)`,
+      position: "absolute",
+      top: "-305px",
+      left: "-185px",
+      transform: "rotate(18.38deg)",
+      zIndex: 0
     }}
   >
     <defs>
       <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style={{ stopColor: '#F31AEA', stopOpacity: 1 }} />
-        <stop offset="100%" style={{ stopColor: '#2F2440', stopOpacity: 1 }} />
+        <stop offset="0%" style={{ stopColor: "#F31AEA", stopOpacity: 1 }} />
+        <stop offset="100%" style={{ stopColor: "#2F2440", stopOpacity: 1 }} />
       </linearGradient>
     </defs>
-    <ellipse cx={width / 2} cy={height / 2} rx={width / 2} ry={height / 2} fill="url(#grad1)" />
+    <ellipse
+      cx="300.25"
+      cy="278.015"
+      rx="300.25"
+      ry="278.015"
+      fill="url(#grad1)"
+    />
   </svg>
 );
 
