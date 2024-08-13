@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: unbreja
+  datasource:
+    url: jdbc:postgresql://localhost:5432/unbreja
+    username: postgres
+    password: password
+  flyway:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
