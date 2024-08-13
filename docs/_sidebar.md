@@ -45,13 +45,13 @@
 
 - **Padrões de Projeto**
   - [3. Desenho de Software (Padrões de Projeto)](/PadroesDeProjeto/3.PadroesProjeto.md)
-    - [3.1. Módulo Padrões de Projeto GoF Criacional](/PadroesDeProjeto/3.1.GoFCriacional.md)
-    - [3.2. Módulo Padrões de Projeto GoF Estrutural](/PadroesDeProjeto/3.2.GoFEstrutural.md)
-    - [3.3. Módulo Padrões de Projeto GoF Comportamental ](/PadroesDeProjeto/3.3.GoFComportamental.md)
+    - [3.1. Padrões de Projeto GoF Criacional](/PadroesDeProjeto/3.1.GoFCriacional.md)
+    - [3.2. Padrões de Projeto GoF Estrutural](/PadroesDeProjeto/3.2.GoFEstrutural.md)
+    - [3.3. Padrões de Projeto GoF Comportamental ](/PadroesDeProjeto/3.3.GoFComportamental.md)
     - [3.4. Participações - Padrões de Projeto](/PadroesDeProjeto/3.4.ParticipacoesPadroes.md)
 
-- **Arquitetura de Software & Reutilização**
-  - [4. Desenho de Software (Arquitetura & Reutilização de Software)](/docs/ArquiteturaReutilizacao/4.ArquiteturaReutilizacao.md)
-    - [4.1. Módulo Estilos e Padrões Arquiteturais](/docs/ArquiteturaReutilizacao/4.1.PadroesArquiteturais.md)
-    - [4.2. Módulo Reutilização de Software](/docs/ArquiteturaReutilizacao/4.2.ReutilizacaoDeSoftware.md)
-    - [4.3. Participações - Arquitetura & Reutilização de Software](/docs/ArquiteturaReutilizacao/4.3.ParticipacoesArqReutilizacao.md)
+- **Arquitetura & Reutilização de Software**
+  - [4. Desenho de Software (Arquitetura & Reutilização de Software)](/ArquiteturaReutilizacao/4.ArquiteturaReutilizacao.md)
+    - [4.1. Estilos e Padrões Arquiteturais](/ArquiteturaReutilizacao/4.1.PadroesArquiteturais.md)
+    - [4.2. Reutilização de Software](/ArquiteturaReutilizacao/4.2.ReutilizacaoDeSoftware.md)
+    - [4.3. Participações - Arquitetura & Reutilização de Software](/ArquiteturaReutilizacao/4.3.ParticipacoesArqReutilizacao.md)
