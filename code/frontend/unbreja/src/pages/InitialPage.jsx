@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import Elipse from "../components/Elipse";
+import { Link } from "react-router-dom"; // Adicionando o Link para navegação
 
 export default function InitialPage() {
   return (
@@ -12,6 +13,9 @@ export default function InitialPage() {
       <TextWrapper>
         <img src={logo} alt="UnBreja Logo" />
       </TextWrapper>
+      <ButtonWrapper>
+        <SignUpButton to="/cadastrar">Começar</SignUpButton>
+      </ButtonWrapper>
     </MainDiv>
   );
 }
@@ -55,8 +59,27 @@ const TextWrapper = styled.div`
   margin-top: 164px;
   margin-bottom: 50px;
   z-index: 1;
-
   img {
     margin-top: 0;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  margin-top: 50px;
+  z-index: 1;
+`;
+
+const SignUpButton = styled(Link)`
+  background-color: #4a148c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  &:hover {
+    background-color: #6a1b9a;
   }
 `;
