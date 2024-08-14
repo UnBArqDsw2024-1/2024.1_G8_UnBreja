@@ -2,7 +2,7 @@ spring:
   application:
     name: unbreja
   datasource:
-    url: jdbc:postgresql://localhost:5432/unbreja
+    url: jdbc:postgresql://localhost:5440/unbreja
     username: postgres
     password: password
   flyway:
