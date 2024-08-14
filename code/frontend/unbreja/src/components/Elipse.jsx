@@ -7,8 +7,8 @@ const Elipse = () => (
     viewBox="0 0 600.5162.06%"
     style={{
       position: "absolute",
-      top: "-305px",
-      left: "-185px",
+      top: "-250px",
+      left: "-90px",
       transform: "rotate(18.38deg)",
       zIndex: 0
     }}
