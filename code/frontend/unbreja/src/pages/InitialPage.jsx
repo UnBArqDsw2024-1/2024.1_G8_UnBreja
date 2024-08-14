@@ -21,6 +21,7 @@ export default function InitialPage() {
 }
 
 const MainDiv = styled.div`
+  font-family: "Inter", sans-serif;
   width: 414px;
   height: 896px;
   display: flex;

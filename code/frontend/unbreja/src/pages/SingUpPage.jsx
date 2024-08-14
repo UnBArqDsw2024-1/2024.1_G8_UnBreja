@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom"; // Certifique-se de que o Link está importado
+import google_icon from "../assets/google_icon.png"
+import { Link } from "react-router-dom"; 
 
 export default function SignUpPage() {
   return (
@@ -12,7 +13,7 @@ export default function SignUpPage() {
         </Subtitle>
 
         <GoogleButton>
-          <GoogleIcon src="google-icon.png" alt="Google Icon" />
+          <GoogleIcon src={google_icon} alt="Google Icon" />
           Sign up with Google
         </GoogleButton>
 
@@ -75,6 +76,7 @@ export default function SignUpPage() {
 }
 
 const MainDiv = styled.div`
+  font-family: "Inter", sans-serif;
   width: 414px;
   height: 896px;
   display: flex;
@@ -120,6 +122,8 @@ const GoogleButton = styled.button`
 
 const GoogleIcon = styled.img`
   margin-right: 10px;
+  width: 15px;
+  heigth: 15px;
 `;
 
 const Form = styled.form`
