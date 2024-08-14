@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import google_icon from "../assets/google_icon.png"
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 export default function SignUpPage() {
   return (
