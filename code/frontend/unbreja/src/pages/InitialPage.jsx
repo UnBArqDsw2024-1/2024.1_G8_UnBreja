@@ -7,7 +7,7 @@ export default function InitialPage() {
   return (
     <MainDiv>
       <ElipseWrapper>
-        <Elipse />
+        <Elipse top="-250px" />
         <Text>Seja bem vindo ao</Text>
       </ElipseWrapper>
       <ImageWrapper>

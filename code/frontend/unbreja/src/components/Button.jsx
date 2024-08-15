@@ -9,8 +9,8 @@ const ButtonComponent = ({ className, children, ...props }) => (
 );
 
 const Button = styled(ButtonComponent)`
-  background-color: #aa1945;
-  color: #ffffff;
+  background-color: #AA1945;
+  color: #FFFFFF;
   font-weight: medium;
   font-size: 16px;
   font-family: "Inter", sans-serif;
@@ -18,19 +18,19 @@ const Button = styled(ButtonComponent)`
   width: 355px;
   height: 52px;
   border-radius: 15px;
-
-  margin-top: auto;
-  margin-bottom: 35px;
+  
+  margin-top: auto; 
+  margin-bottom: 35px; 
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-
+  justify-content: center; 
+  align-items: center; 
+  
   cursor: pointer;
   text-align: center;
 
   &:hover {
-    background-color: #d74773;
+    background-color: #D74773;
   }
 `;
 

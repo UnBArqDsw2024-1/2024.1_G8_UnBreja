@@ -1,13 +1,13 @@
 import React from "react";
 
-const Elipse = () => (
+const Elipse = ({ top }) => (
   <svg
     width="600.51px"
     height="556.03px"
     viewBox="0 0 600.5162.06%"
     style={{
       position: "absolute",
-      top: "-250px",
+      top,
       left: "-90px",
       transform: "rotate(18.38deg)",
       zIndex: 0
