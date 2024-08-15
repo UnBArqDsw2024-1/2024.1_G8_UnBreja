@@ -13,10 +13,10 @@ function SignUpForm() {
                 </label>
             </div>
             <ButtonWrapper>
-                <Button to="/cadastrar">Cadastrar</Button>
+                <Button to="/">Cadastrar</Button>
                 <TextWrapper>
                     <p>Já possui conta?</p>
-                    <StyledButton to="/entrar">Entrar com minha conta</StyledButton>
+                    <StyledButton to="/">Entrar com minha conta</StyledButton>
                 </TextWrapper>
             </ButtonWrapper>
         </div>
@@ -47,29 +47,29 @@ export default styled(SignUpForm)`
 
 const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: 12px; /* Ajuste o valor para posicionar o botão mais para baixo */
+  bottom: 12px; 
   left: 50%;
   transform: translateX(-50%);
-  text-align: center; /* Centraliza o texto e os botões */
+  text-align: center;
 `;
 
 const TextWrapper = styled.div`
-  margin-top: 20px; /* Espaço entre o botão Cadastrar e o texto */
+  margin-top: 20px;
   
   p {
     font-size: 16px;
-    color: #AA1945; /* Cor do texto "Já possui conta?" */
-    margin-bottom: 10px; /* Espaço entre o texto e o botão */
+    color: #AA1945;
+    margin-bottom: 10px;
   }
 `;
 
 const StyledButton = styled(Button)`
   background-color: white;
-  color: #AA1945; /* Cor do texto */
-  border: 2px solid #AA1945; /* Borda vermelha */
+  color: #AA1945;
+  border: 2px solid #AA1945; 
   
   &:hover {
-    background-color: #f8f8f8; /* Alterar a cor de fundo ao passar o mouse, se desejar */
+    background-color: #f8f8f8;
   }
 `;
 
