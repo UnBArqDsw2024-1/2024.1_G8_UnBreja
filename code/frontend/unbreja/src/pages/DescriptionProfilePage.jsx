@@ -8,23 +8,23 @@ export default function DescriptionProfilePage() {
   //APAGAR QUANDO O BACKEND TIVER PRONTO
   const simulacaoVarObjeto = {
     nomeUsuario: "João Pedro",
-    idade: "22",
-    fotoUsuario:
-      "https://web.whatsapp.com/6b4f43dd-9417-4525-8772-9931d160fa25",
-    curso: "Engenharia de Software",
-    interesse: "Relacionamento",
-    campus: {
-      nomeCampus: "Faculdade do gama",
-      siglaCampus: "FGA"
-    },
+    nomeCompleto: "João Pedro Silva",  
+    email: "joao.pedro@email.com",     
+    descricao: "Estudante de Engenharia de Software", 
+    senha: "senhaSegura123",          
+    dtNascimento: new Date(2002, 0, 15),
+    fotoUsuario: "https://avatars.githubusercontent.com/u/56097889?v=4",
     interesses: [
-      "Musculação",
-      "Eventos Acadêmicos",
-      "Trabalhos relacionados à inteligência artificial"
+      { nome: "Musculação" },
+      { nome: "Eventos Acadêmicos" },
+      { nome: "Trabalhos relacionados à inteligência artificial" }
     ],
-    busca: ["Relacionamentos"],
-    outrasRedesSociais: "@jpedrofga"
+    universidade: {
+      nomeCampus: "Faculdade do Gama",
+      siglaCampus: "FGA"
+    }
   };
+  
 
   return (
     <MainDiv>

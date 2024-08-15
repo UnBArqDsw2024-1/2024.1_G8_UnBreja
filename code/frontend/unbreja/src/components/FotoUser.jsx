@@ -2,6 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 export default function FotoUser({ infos }) {
+  function calculateAge(dateOfBirth) {
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  }
+
   function emojiInterest(interest) {
     const auxInterest = interest.toLowerCase();
     if (auxInterest === "relacionamento") return `😈 ${interest}`;
@@ -22,10 +36,9 @@ export default function FotoUser({ infos }) {
         <UserImage src={infos.fotoUsuario} />
         <NameUser>
           <p className="Nome">{infos.nomeUsuario}</p>
-          <p className="Curso">{infos.curso}</p>
           <InterestCampusWrapper>
-            <p className="Interesse">{emojiInterest(infos.interesse)}</p>
-            <p className="Campus">{infos.campus.siglaCampus}</p>
+            <p className="Idade">{calculateAge(infos.dtNascimento)} anos</p>
+            <p className="Campus">{infos.universidade.siglaCampus}</p>
           </InterestCampusWrapper>
         </NameUser>
       </InfoWrapper>
@@ -63,7 +76,7 @@ const NameUser = styled.div`
   position: absolute;
   bottom: 45px;
   width: 83%;
-  height: 136px;
+  height: auto;
   z-index: 2;
   align-self: center;
 
@@ -83,16 +96,16 @@ const NameUser = styled.div`
     margin-bottom: 20px;
   }
 
-  .Interesse {
+  .Idade {
     font-weight: regular;
     font-size: 18px;
-    color: #aa1945;
+    color: #ffffff;
   }
 
   .Campus {
     font-weight: regular;
     font-size: 18px;
-    color: #aa1945;
+    color: #ffffff;
   }
 `;
 

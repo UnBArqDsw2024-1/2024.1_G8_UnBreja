@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 export default function DetailsInfos({ infos }) {
+
   const formatList = (list) => {
-    if (list.length === 1) return list[0];
-    return `${list.slice(0, -1).join(", ")} e ${list.slice(-1)}.`;
+    if (list.length === 1) return list[0].nome;
+    return `${list.slice(0, -1).map(item => item.nome).join(", ")} e ${list[list.length - 1].nome}.`;
   };
 
   return (
     <MainDiv>
       <InfoWrapper>
         <span>
-          <strong>Descrição:</strong> {infos.campus.nomeCampus}, {infos.idade}{" "}
-          anos.
+          <strong>Descrição:</strong> {infos.descricao}
         </span>
         <span>
           <strong>Interesses:</strong> {formatList(infos.interesses)}
@@ -21,6 +21,7 @@ export default function DetailsInfos({ infos }) {
     </MainDiv>
   );
 }
+
 
 const MainDiv = styled.div`
   position: relative;
