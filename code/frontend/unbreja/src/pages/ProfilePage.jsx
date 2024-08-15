@@ -6,15 +6,34 @@ export default function ProfilePage() {
     "FGA - Faculdade UnB Gama",
     "FCE - Faculdade UnB Ceilândia",
     "FUP - Faculdade UnB Planaltina",
-    "Darcy Ribeiro",
+    "Darcy Ribeiro"
   ];
 
   const regions = [
-    "Ceilândia", "Asa Norte", "Asa Sul", "Taguatinga", "Gama", "Samambaia", 
-    "Planaltina", "Brasília", "Guará", "Sobradinho", "Paranoá", 
-    "Recanto das Emas", "Riacho Fundo", "Sudoeste", "Águas Claras", 
-    "Santa Maria", "Brazlândia", "Cruzeiro", "Varjão", "Candangolândia", 
-    "Núcleo Bandeirante", "Lago Sul", "Lago Norte", "Park Way"
+    "Ceilândia",
+    "Asa Norte",
+    "Asa Sul",
+    "Taguatinga",
+    "Gama",
+    "Samambaia",
+    "Planaltina",
+    "Brasília",
+    "Guará",
+    "Sobradinho",
+    "Paranoá",
+    "Recanto das Emas",
+    "Riacho Fundo",
+    "Sudoeste",
+    "Águas Claras",
+    "Santa Maria",
+    "Brazlândia",
+    "Cruzeiro",
+    "Varjão",
+    "Candangolândia",
+    "Núcleo Bandeirante",
+    "Lago Sul",
+    "Lago Norte",
+    "Park Way"
   ];
 
   return (
@@ -48,7 +67,11 @@ export default function ProfilePage() {
 
           <InputGroup>
             <Label htmlFor="phoneNumber">Celular</Label>
-            <Input type="text" id="phoneNumber" placeholder="Ex: (61) 99999-9999" />
+            <Input
+              type="text"
+              id="phoneNumber"
+              placeholder="Ex: (61) 99999-9999"
+            />
           </InputGroup>
 
           <InterestGroup>
@@ -59,8 +82,7 @@ export default function ProfilePage() {
                 Relacionamentos
               </CheckboxLabel>
               <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                O que der veio
+                <Checkbox type="checkbox" />O que der veio
               </CheckboxLabel>
               <CheckboxLabel>
                 <Checkbox type="checkbox" />
@@ -97,6 +119,7 @@ export default function ProfilePage() {
 }
 
 const MainDiv = styled.div`
+  font-family: "Inter", sans-serif;
   width: 414px;
   height: 896px;
   display: flex;
@@ -198,4 +221,3 @@ const CompleteProfileButton = styled.button`
     background-color: #6a1b9a;
   }
 `;
-

@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ButtonComponent = ({ className, children, ...props }) => (
+const Button = ({ className, children, ...props }) => (
   <Link className={className} {...props}>
     {children}
   </Link>
 );
 
-const Button = styled(ButtonComponent)`
+export default styled(Button)`
   background-color: #aa1945;
   color: #ffffff;
   font-weight: medium;
@@ -33,5 +33,3 @@ const Button = styled(ButtonComponent)`
     background-color: #d74773;
   }
 `;
-
-export default Button;
