@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import Elipse from "../components/Elipse";
-import { Link } from "react-router-dom";
 import Button from "../components/Button";
 
 export default function InitialPage() {
   return (
     <MainDiv>
       <ElipseWrapper>
-        <Elipse />
+        <Elipse top="-250px" />
         <Text>Seja bem vindo ao</Text>
       </ElipseWrapper>
       <ImageWrapper>

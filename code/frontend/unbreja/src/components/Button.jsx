@@ -11,7 +11,7 @@ const Button = ({ className, children, ...props }) => (
 export default styled(Button)`
     background-color: #AA1945;
     color: white;
-    padding: 20px;
+    padding: 16px;
     width: 354px;
     height: 52px;
     border-radius: 15px;
