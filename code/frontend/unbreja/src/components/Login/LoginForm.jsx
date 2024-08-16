@@ -48,11 +48,11 @@ const ButtonWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  margin-top: 20px;
+  margin-top: 5px;
   
   p {
     font-size: 16px;
     color: #AA1945;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 `;

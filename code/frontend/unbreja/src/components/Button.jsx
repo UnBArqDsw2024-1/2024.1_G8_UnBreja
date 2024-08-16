@@ -32,7 +32,22 @@ const PrimaryButton = styled(ButtonComponent)`
 const SecondaryButton = styled(ButtonComponent)`
   background-color: white;
   color: #aa1945; 
-  border: 2px solid #aa1945; 
+  border: 2px solid #aa1945;
+  border-radius: 10px;
+  padding: 3px 3px;
+  font-weight: medium;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  width: 355px;
+  height: 52px;
+  border-radius: 15px;
+  margin-top: auto;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
   &:hover {
     background-color: #f8f8f8;
   }
