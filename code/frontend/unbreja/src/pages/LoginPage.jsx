@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
-import SignUpForm from "../components/SignUp/SignUpForm";
+import LoginForm from "../components/Login/LoginForm";
 
-export default function SignUpPage() {
+export default function LoginPage() {
   return (
     <MainDiv>
       <Elipse top="-350px" />
-      <PageHeader title="Cadastro" subtitle="Por favor, é necessário uma conta para utilizar o app" />
+      <PageHeader title="Login" subtitle="Faça o login e venha fazer novas amizades" />
       <GoogleButton>
         <GoogleIcon src={google_icon} alt="Google Icon" />
-        Sign up with Google
+        Login with Google
       </GoogleButton>
-      <SignUpForm />
+      <LoginForm />
     </MainDiv>
   );
 }
