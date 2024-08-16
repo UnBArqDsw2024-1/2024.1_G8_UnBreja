@@ -5,6 +5,7 @@ import SignUpPage from "./pages/SignUpPage";
 import ProfilePage from "./pages/ProfilePage";
 import DescriptionProfilePage from "./pages/DescriptionProfilePage";
 import LoginPage from "./pages/LoginPage";
+import SwipePage from "./pages/SwipePage";
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastrar" element={<SignUpPage />} />{" "}
         <Route path="/perfil" element={<ProfilePage />} />
+        <Route path="/combinacao" element={<SwipePage />} />
         <Route
-          path="/descricaoperfil/usuario"
+          path="/descricaoperfil/:id"
           element={<DescriptionProfilePage />}
         />
       </Routes>

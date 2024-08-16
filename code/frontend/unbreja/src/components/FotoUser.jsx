@@ -16,20 +16,6 @@ export default function FotoUser({ infos }) {
     return age;
   }
 
-  function emojiInterest(interest) {
-    const auxInterest = interest.toLowerCase();
-    if (auxInterest === "relacionamento") return `😈 ${interest}`;
-    if (auxInterest === "amizades") return `🤗 ${interest}`;
-    if (auxInterest === "o que der véio") return `🤷‍♂️ ${interest}`;
-    if (auxInterest === "esportes") return `🏅 ${interest}`;
-    if (auxInterest === "sair pra beber") return `🍻 ${interest}`;
-    if (auxInterest === "festas") return `🎉 ${interest}`;
-    if (auxInterest === "encontrar um grupo") return `👥 ${interest}`;
-    if (auxInterest === "animais") return `🐾 ${interest}`;
-
-    return interest;
-  }
-
   return (
     <MainDiv>
       <InfoWrapper>
