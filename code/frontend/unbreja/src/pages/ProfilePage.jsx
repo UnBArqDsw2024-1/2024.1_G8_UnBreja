@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { createButton } from "../components/Button";
+import Elipse from "../components/Elipse";
+import PageHeader from "../components/PageHeader";
 
 export default function ProfilePage() {
   const campuses = [
     "FGA - Faculdade UnB Gama",
     "FCE - Faculdade UnB Ceilândia",
-    "FUP - Faculdade UnB Planaltina",
+    "FUP - Faculdade UnB Planaltina", 
     "Darcy Ribeiro"
   ];
 
@@ -38,10 +41,15 @@ export default function ProfilePage() {
 
   return (
     <MainDiv>
+      <ElipseWrapper>
+        <Elipse top="-350px" />
+      </ElipseWrapper>
+      <PageHeaderWrapper><PageHeader
+        title="Perfil"
+        subtitle="Informações e preferências"
+      /></PageHeaderWrapper>
+      
       <ProfileCard>
-        <Title>Perfil</Title>
-        <Subtitle>Informações e preferências</Subtitle>
-
         <Form>
           <InputGroup>
             <Label htmlFor="campus">Campus</Label>
@@ -110,13 +118,14 @@ export default function ProfilePage() {
               </CheckboxLabel>
             </CheckboxWrapper>
           </InterestGroup>
-
-          <CompleteProfileButton type="submit">Continuar</CompleteProfileButton>
+          <ButtonWrapper>{createButton('primary', '/login', 'Continuar')}</ButtonWrapper>    
+          
         </Form>
       </ProfileCard>
     </MainDiv>
   );
 }
+
 
 const MainDiv = styled.div`
   font-family: "Inter", sans-serif;
@@ -128,6 +137,7 @@ const MainDiv = styled.div`
   justify-content: center;
   background-color: #f0f0f0;
 `;
+
 
 const ProfileCard = styled.div`
   background-color: white;
@@ -159,9 +169,11 @@ const InputGroup = styled.div`
 `;
 
 const Label = styled.label`
-  display: block;
-  color: #757575;
-  margin-bottom: 5px;
+  font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #aa1945;
+    pointer-events: none;
+    line-height: 24px;
 `;
 
 const Input = styled.input`
@@ -207,17 +219,26 @@ const Checkbox = styled.input`
   margin-right: 10px;
 `;
 
-const CompleteProfileButton = styled.button`
-  background-color: #4a148c;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-  cursor: pointer;
-  margin-bottom: 20px;
 
-  &:hover {
-    background-color: #6a1b9a;
-  }
+const ButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 `;
+
+const ElipseWrapper = styled.div`
+  position: absolute;
+  top: -130px;
+  left: -90px; 
+  transform: rotate(18.38deg);
+`;
+
+const PageHeaderWrapper = styled.div`
+  position: absolute;
+  top: -25px;
+  left: -20px; 
+ 
+`;
+
