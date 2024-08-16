@@ -1,179 +1,109 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useState, useRef } from "react";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import TinderCard from "react-tinder-card";
+import { profiles } from "../helpers/profiles";
 
 export default function SwipePage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [stamp, setStamp] = useState(null);
+  const [swipeDirection, setSwipeDirection] = useState(null);
   const navigate = useNavigate();
 
-  const swiped = (direction, nameToDelete) => {
+  const handleSwipe = (direction) => {
+    setSwipeDirection(direction);
+    setStamp(direction === "right" ? "LIKE" : "NOPE");
     setTimeout(() => {
       setStamp(null);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % profiles.length);
     }, 300);
-  };
-
-  const onSwipeStart = (direction) => {
-    if (direction === "right") {
-      setStamp("LIKE");
-    } else if (direction === "left") {
-      setStamp("NOPE");
-    }
   };
 
   const handleClick = (user) => {
     navigate(`/descricaoperfil/${user.id}`, { state: { user } });
   };
 
-  const profiles = [
-    {
-      id: "1",
-      nomeUsuario: "João Pedro",
-      nomeCompleto: "João Pedro Silva",
-      descricao: "Estudante de Engenharia de Software",
-      dtNascimento: new Date(2002, 0, 15),
-      fotoUsuario: "https://avatars.githubusercontent.com/u/56097889?v=4",
-      universidade: {
-        nomeCampus: "Faculdade do Gama",
-        siglaCampus: "FGA"
-      }
-    },
-    {
-      id: "2",
-      nomeUsuario: "Maria Clara",
-      nomeCompleto: "Maria Clara Costa",
-      descricao: "Apaixonada por design gráfico",
-      dtNascimento: new Date(1999, 5, 23),
-      fotoUsuario: "https://randomuser.me/api/portraits/women/50.jpg",
-      universidade: {
-        nomeCampus: "Universidade de Brasília",
-        siglaCampus: "UnB"
-      }
-    },
-    {
-      id: "3",
-      nomeUsuario: "Lucas Mendes",
-      nomeCompleto: "Lucas Mendes Rocha",
-      descricao: "Entusiasta de inteligência artificial",
-      dtNascimento: new Date(1998, 10, 12),
-      fotoUsuario: "https://randomuser.me/api/portraits/men/60.jpg",
-      universidade: {
-        nomeCampus: "Universidade de São Paulo",
-        siglaCampus: "USP"
-      }
-    },
-    {
-      id: "4",
-      nomeUsuario: "Beatriz Oliveira",
-      nomeCompleto: "Beatriz Oliveira Santos",
-      descricao: "Engenheira Civil em formação",
-      dtNascimento: new Date(2001, 3, 18),
-      fotoUsuario: "https://randomuser.me/api/portraits/women/68.jpg",
-      universidade: {
-        nomeCampus: "Universidade Federal de Minas Gerais",
-        siglaCampus: "UFMG"
-      }
-    },
-    {
-      id: "5",
-      nomeUsuario: "Gabriel Souza",
-      nomeCompleto: "Gabriel Souza Pereira",
-      descricao: "Desenvolvedor Full Stack",
-      dtNascimento: new Date(1997, 8, 30),
-      fotoUsuario: "https://randomuser.me/api/portraits/men/22.jpg",
-      universidade: {
-        nomeCampus: "Instituto Federal de São Paulo",
-        siglaCampus: "IFSP"
-      }
-    },
-    {
-      id: "6",
-      nomeUsuario: "Ana Paula",
-      nomeCompleto: "Ana Paula Ribeiro",
-      descricao: "Estudante de Medicina",
-      dtNascimento: new Date(2000, 7, 9),
-      fotoUsuario: "https://randomuser.me/api/portraits/women/34.jpg",
-      universidade: {
-        nomeCampus: "Universidade Federal do Rio de Janeiro",
-        siglaCampus: "UFRJ"
-      }
-    },
-    {
-      id: "7",
-      nomeUsuario: "Carlos Henrique",
-      nomeCompleto: "Carlos Henrique Almeida",
-      descricao: "Aficionado por tecnologia e inovação",
-      dtNascimento: new Date(1996, 1, 27),
-      fotoUsuario: "https://randomuser.me/api/portraits/men/35.jpg",
-      universidade: {
-        nomeCampus: "Universidade Federal de Santa Catarina",
-        siglaCampus: "UFSC"
-      }
-    },
-    {
-      id: "8",
-      nomeUsuario: "Juliana Ferreira",
-      nomeCompleto: "Juliana Ferreira Lima",
-      descricao: "Bióloga apaixonada por conservação ambiental",
-      dtNascimento: new Date(1998, 11, 14),
-      fotoUsuario: "https://randomuser.me/api/portraits/women/39.jpg",
-      universidade: {
-        nomeCampus: "Universidade de Brasília",
-        siglaCampus: "UnB"
-      }
-    },
-    {
-      id: "9",
-      nomeUsuario: "Felipe Costa",
-      nomeCompleto: "Felipe Costa Santos",
-      descricao: "Especialista em segurança da informação",
-      dtNascimento: new Date(1995, 4, 22),
-      fotoUsuario: "https://randomuser.me/api/portraits/men/41.jpg",
-      universidade: {
-        nomeCampus: "Universidade Estadual de Campinas",
-        siglaCampus: "UNICAMP"
-      }
-    },
-    {
-      id: "10",
-      nomeUsuario: "Larissa Martins",
-      nomeCompleto: "Larissa Martins Silva",
-      descricao: "Estudante de Arquitetura",
-      dtNascimento: new Date(2001, 2, 2),
-      fotoUsuario: "https://randomuser.me/api/portraits/women/23.jpg",
-      universidade: {
-        nomeCampus: "Universidade Federal de Pernambuco",
-        siglaCampus: "UFPE"
-      }
-    }
-  ];
-
   return (
     <MainDiv>
       <CardContainer>
-        {profiles.map((user) => (
-          <TinderCard
-            className="swipe"
+        {profiles.slice(currentIndex, currentIndex + 1).map((user, index) => (
+          <SwipeCard
             key={user.id}
-            onSwipeStart={(dir) => onSwipeStart(dir)}
-            onSwipe={(dir) => swiped(dir, user.id)}
-          >
-            <InfoWrapper onClick={() => handleClick(user)}>
-              {stamp && <Stamp direction={stamp}>{stamp}</Stamp>}
-              <UserImage src={user.fotoUsuario} />
-              <NameUser>
-                <p className="Nome">{user.nomeUsuario}</p>
-                <InterestCampusWrapper>
-                  <p className="Campus">{user.universidade.siglaCampus}</p>
-                </InterestCampusWrapper>
-              </NameUser>
-            </InfoWrapper>
-          </TinderCard>
+            user={user}
+            handleClick={() => handleClick(user)}
+            onSwipe={handleSwipe}
+            showStamp={stamp}
+            swipeDirection={swipeDirection}
+          />
         ))}
       </CardContainer>
     </MainDiv>
   );
 }
+
+const SwipeCard = ({
+  user,
+  handleClick,
+  onSwipe,
+  showStamp,
+  swipeDirection
+}) => {
+  const cardRef = useRef(null);
+
+  const handleTouchStart = (e) => {
+    const startX = e.touches[0].clientX;
+
+    const handleTouchMove = (e) => {
+      const moveX = e.touches[0].clientX - startX;
+      const absMoveX = Math.abs(moveX);
+
+      if (cardRef.current) {
+        cardRef.current.style.transform = `translateX(${moveX}px)`;
+      }
+
+      if (absMoveX > 100) {
+        if (moveX > 0) {
+          onSwipe("right");
+        } else {
+          onSwipe("left");
+        }
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (cardRef.current) {
+        cardRef.current.style.transition = "transform 0.5s ease";
+        cardRef.current.style.transform = `translateX(${
+          swipeDirection === "right" ? "100%" : "-100%"
+        })`;
+      }
+
+      setTimeout(() => {
+        if (cardRef.current) {
+          cardRef.current.style.transition = "";
+          cardRef.current.style.transform = "";
+        }
+        document.removeEventListener("touchmove", handleTouchMove);
+        document.removeEventListener("touchend", handleTouchEnd);
+      }, 500);
+    };
+
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
+  };
+
+  return (
+    <Card ref={cardRef} onClick={handleClick} onTouchStart={handleTouchStart}>
+      {showStamp && <Stamp direction={showStamp}>{showStamp}</Stamp>}
+      <UserImage src={user.fotoUsuario} />
+      <NameUser>
+        <p className="Nome">{user.nomeUsuario}</p>
+        <InterestCampusWrapper>
+          <p className="Campus">{user.universidade.siglaCampus}</p>
+        </InterestCampusWrapper>
+      </NameUser>
+    </Card>
+  );
+};
 
 const MainDiv = styled.div`
   font-family: "Inter", sans-serif;
@@ -183,33 +113,28 @@ const MainDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: green;
 `;
 
 const CardContainer = styled.div`
   position: relative;
   width: 90%;
   height: 90%;
-  border-radius: 15px;
-  display: flex;
-  z-index: 1;
-  background-color: blue;
 `;
 
-const InfoWrapper = styled.div`
-  position: relative;
+const Card = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
+  z-index: 1;
+  transition: transform 0.3s ease;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  cursor: pointer;
+  justify-content: center;
 `;
 
 const UserImage = styled.img`
   width: 100%;
   height: 100%;
-  z-index: 1;
   border-radius: 50px;
   object-fit: cover;
   object-position: center;
@@ -257,13 +182,4 @@ const Stamp = styled.div`
   background-color: ${({ direction }) =>
     direction === "LIKE" ? "green" : "red"};
   transform: rotate(-15deg);
-
-  ${({ direction }) =>
-    direction === "LIKE"
-      ? css`
-          right: 20px;
-        `
-      : css`
-          left: 20px;
-        `}
 `;
