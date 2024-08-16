@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { profiles } from "../helpers/profiles";
+import { profiles as initialProfiles } from "../helpers/profiles";
 
 export default function SwipePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [profiles, setProfiles] = useState(initialProfiles);
   const [stamp, setStamp] = useState(null);
   const [swipeDirection, setSwipeDirection] = useState(null);
   const navigate = useNavigate();
@@ -12,9 +13,19 @@ export default function SwipePage() {
   const handleSwipe = (direction) => {
     setSwipeDirection(direction);
     setStamp(direction === "right" ? "LIKE" : "NOPE");
+
     setTimeout(() => {
       setStamp(null);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % profiles.length);
+      
+      const newProfiles = [...profiles];
+      newProfiles.splice(currentIndex, 1);
+      setProfiles(newProfiles);
+
+      if (newProfiles.length > 0) {
+        setCurrentIndex(0);
+      } else {
+        console.log("Não há mais perfis para exibir.");
+      }
     }, 300);
   };
 
@@ -25,16 +36,16 @@ export default function SwipePage() {
   return (
     <MainDiv>
       <CardContainer>
-        {profiles.slice(currentIndex, currentIndex + 1).map((user, index) => (
+        {profiles.length > 0 && (
           <SwipeCard
-            key={user.id}
-            user={user}
-            handleClick={() => handleClick(user)}
+            key={profiles[currentIndex].id}
+            user={profiles[currentIndex]}
+            handleClick={() => handleClick(profiles[currentIndex])}
             onSwipe={handleSwipe}
             showStamp={stamp}
             swipeDirection={swipeDirection}
           />
-        ))}
+        )}
       </CardContainer>
     </MainDiv>
   );
