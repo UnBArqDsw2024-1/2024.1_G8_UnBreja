@@ -3,17 +3,35 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import FotoUser from "../components/FotoUser";
 import DetailsInfos from "../components/DetailsInfos";
-import Button from "../components/Button";
+import { createButton } from "../components/Button";
 
 export default function DescriptionProfilePage() {
-  const location = useLocation();
-  const { user } = location.state;
+  //APAGAR QUANDO O BACKEND TIVER PRONTO
+  const simulacaoVarObjeto = {
+    nomeUsuario: "João Pedro",
+    nomeCompleto: "João Pedro Silva",
+    email: "joao.pedro@email.com",
+    descricao: "Estudante de Engenharia de Software",
+    senha: "senhaSegura123",
+    dtNascimento: new Date(2002, 0, 15),
+    fotoUsuario: "https://avatars.githubusercontent.com/u/56097889?v=4",
+    interesses: [
+      { nome: "Musculação" },
+      { nome: "Eventos Acadêmicos" },
+      { nome: "Trabalhos relacionados à inteligência artificial" }
+    ],
+    universidade: {
+      nomeCampus: "Faculdade do Gama",
+      siglaCampus: "FGA"
+    }
+  };
+
 
   return (
     <MainDiv>
-      <FotoUser infos={user} />
-      <DetailsInfos infos={user} />
-      <Button>Dar Match</Button>
+      <FotoUser infos={simulacaoVarObjeto} />
+      <DetailsInfos infos={simulacaoVarObjeto} />
+      {createButton('secondary', '/', 'Dar Match')}
     </MainDiv>
   );
 }

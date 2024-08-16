@@ -5,7 +5,7 @@ import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
 import LoginForm from "../components/Login/LoginForm";
 import useAuth from "../hook/useAuth";
-import api from "../apis/api.js";
+import api from '../apis/api';
 
 export default function LoginPage() {
   const { auth, login } = useAuth();
@@ -19,8 +19,8 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       const data = JSON.stringify({
-        email: username,
-        senha: password
+        "email": username,
+        "senha": password
       });
 
       const promise = api.login({ data });
@@ -34,7 +34,7 @@ export default function LoginPage() {
       promise.catch(() => {
         setIsLoading(false);
 
-        alert("Erro, tente novamente");
+        alert('Erro, tente novamente');
       });
 
       // login({ token: response.data.token });
@@ -42,15 +42,16 @@ export default function LoginPage() {
       navigate("/combinacao");
     } catch (error) {
       console.error(error);
-      setError("Falha ao fazer login. Tente novamente.");
+      setError('Falha ao fazer login. Tente novamente.');
     }
-  };
+  }
 
   useEffect(() => {
     if (auth && auth.token) {
       navigate("/combinacao");
     }
   }, [auth, navigate]);
+
 
   return (
     <MainDiv>
@@ -94,3 +95,4 @@ const GoogleIcon = styled.img`
   width: 15px;
   heigth: 15px;
 `;
+

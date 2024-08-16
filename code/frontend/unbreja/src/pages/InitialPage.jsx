@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import Elipse from "../components/Elipse";
-import Button from "../components/Button";
+import { createButton } from "../components/Button";
 
 export default function InitialPage() {
   return (
@@ -14,7 +14,7 @@ export default function InitialPage() {
         <img src={logo} alt="UnBreja Logo" />
       </ImageWrapper>
       <ButtonWrapper>
-        <Button to="/cadastrar">Iniciar</Button>
+        {createButton('secondary', '/cadastrar', 'Começar')}
       </ButtonWrapper>
     </MainDiv>
   );
