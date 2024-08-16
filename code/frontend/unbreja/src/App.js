@@ -5,6 +5,7 @@ import SignUpPage from "./pages/SignUpPage";
 import ProfilePage from "./pages/ProfilePage";
 import DescriptionProfilePage from "./pages/DescriptionProfilePage";
 import LoginPage from "./pages/LoginPage";
+import SwipePage from "./pages/SwipePage";
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           path="/descricaoperfil/usuario"
           element={<DescriptionProfilePage />}
         />
+        {/* <Route path="/combinacao" element={<SwipePage />} />
+        <Route
+          path="/descricaoperfil/:id"
+          element={<DescriptionProfilePage />}
+        />  */}
       </Routes>
     </BrowserRouter>
   );
