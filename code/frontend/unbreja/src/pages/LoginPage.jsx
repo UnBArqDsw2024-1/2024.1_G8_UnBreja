@@ -1,68 +1,91 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import google_icon from "../assets/google_icon.png";
-import Elipse from "../components/Elipse";
-import PageHeader from "../components/PageHeader";
-import LoginForm from "../components/Login/LoginForm";
 import useAuth from "../hook/useAuth";
 import api from "../apis/api";
+import {
+  Container,
+  Form,
+  Input,
+  Button,
+  StyledLink
+} from "../components/FormComponents";
 
 export default function LoginPage() {
   const { auth, login } = useAuth();
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [senha, setSenha] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  function handleChangeEmail(e) {
+    setEmail(e.target.value);
+  }
+
+  function handleChangeSenha(e) {
+    setSenha(e.target.value);
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
+
     setIsLoading(true);
-    setError("");
 
+    const body = {
+      email: email,
+      senha: senha
+    };
     try {
-      const data = {
-        email: username,
-        senha: password
-      };
+      const promise = await api.login(body);
 
-      const response = await api.login({ data });
-      login({ token: response.data.token });
+      setIsLoading(false);
+
+      login(promise.data);
+
       navigate("/combinacao");
     } catch (error) {
-      setError("Falha ao fazer login. Tente novamente.");
-    } finally {
       setIsLoading(false);
+      alert("Erro, tente novamente");
     }
-  };
+  }
 
   useEffect(() => {
-    if (auth && auth.token) {
+    if (auth?.token) {
       navigate("/combinacao");
     }
   }, [auth, navigate]);
 
   return (
     <MainDiv>
-      <Elipse top="-350px" />
-      <PageHeader
-        title="Login"
-        subtitle="Faça o login e venha fazer novas amizades"
-      />
-      <GoogleButton>
-        <GoogleIcon src={google_icon} alt="Google Icon" />
-        Login with Google
-      </GoogleButton>
-      <LoginForm
-        username={username}
-        setUsername={setUsername}
-        password={password}
-        setPassword={setPassword}
-        handleSubmit={handleSubmit}
-        isLoading={isLoading}
-        error={error}
-      />
+      <Container>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            placeholder="email"
+            name="email"
+            onChange={handleChangeEmail}
+            value={email}
+            disabled={isLoading}
+            required
+          />
+          <Input
+            type="password"
+            placeholder="senha"
+            name="password"
+            onChange={handleChangeSenha}
+            value={senha}
+            disabled={isLoading}
+            required
+          />
+
+          <Button type="submit" disabled={isLoading}>
+            {"Entrar"}
+          </Button>
+        </Form>
+
+        <StyledLink to="/cadastrar">Não tem uma conta? Cadastre-se!</StyledLink>
+      </Container>
     </MainDiv>
   );
 }
