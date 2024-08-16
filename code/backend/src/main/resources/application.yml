@@ -2,9 +2,9 @@ spring:
   application:
     name: unbreja
   datasource:
-    url: jdbc:postgresql://localhost:5440/unbreja
-    username: postgres
-    password: password
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5440/unbreja}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:password}
   flyway:
     enabled: true
   jpa:

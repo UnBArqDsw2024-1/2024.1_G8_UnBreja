@@ -8,6 +8,6 @@ class Interesse(
     @Column(nullable = false, length = 50)
     var nome: String,
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "interesses")
+    @ManyToMany(mappedBy = "interesses", fetch = FetchType.LAZY)
     var usuarios: MutableSet<Usuario> = mutableSetOf(),
 )

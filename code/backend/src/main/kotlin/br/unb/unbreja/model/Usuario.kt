@@ -9,14 +9,11 @@ open class Usuario(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id: Long? = null,
 
-    @Column(unique = true, nullable = false, length = 20)
-    open var nomeUsuario: String,
+    @Column(unique = true, nullable = false, length = 254)
+    open var email: String,
 
     @Column(nullable = false, length = 100)
     open var nomeCompleto: String,
-
-    @Column(unique = true, nullable = false, length = 254)
-    open var email: String,
 
     @Column(nullable = true, length = 300)
     open var descricao: String?,
@@ -29,6 +26,9 @@ open class Usuario(
 
     @Column(nullable = false, length = 255)
     open var fotoUsuario: String,
+
+    @Column(nullable = false)
+    open var isAdmin: Boolean = false,
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = [CascadeType.MERGE, CascadeType.PERSIST])
     @JoinTable(
