@@ -15,15 +15,11 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastrar" element={<SignUpPage />} />{" "}
         <Route path="/perfil" element={<ProfilePage />} />
-        <Route
-          path="/descricaoperfil/usuario"
-          element={<DescriptionProfilePage />}
-        />
-        {/* <Route path="/combinacao" element={<SwipePage />} />
+        <Route path="/combinacao" element={<SwipePage />} />
         <Route
           path="/descricaoperfil/:id"
           element={<DescriptionProfilePage />}
-        />  */}
+        />
       </Routes>
     </BrowserRouter>
   );

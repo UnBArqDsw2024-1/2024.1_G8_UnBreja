@@ -8,10 +8,10 @@ export default function DescriptionProfilePage() {
   //APAGAR QUANDO O BACKEND TIVER PRONTO
   const simulacaoVarObjeto = {
     nomeUsuario: "João Pedro",
-    nomeCompleto: "João Pedro Silva",  
-    email: "joao.pedro@email.com",     
-    descricao: "Estudante de Engenharia de Software", 
-    senha: "senhaSegura123",          
+    nomeCompleto: "João Pedro Silva",
+    email: "joao.pedro@email.com",
+    descricao: "Estudante de Engenharia de Software",
+    senha: "senhaSegura123",
     dtNascimento: new Date(2002, 0, 15),
     fotoUsuario: "https://avatars.githubusercontent.com/u/56097889?v=4",
     interesses: [
@@ -24,7 +24,6 @@ export default function DescriptionProfilePage() {
       siglaCampus: "FGA"
     }
   };
-  
 
   return (
     <MainDiv>

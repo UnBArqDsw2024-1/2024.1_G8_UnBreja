@@ -4,12 +4,10 @@ import { useNavigate } from "react-router-dom";
 import TinderCard from "react-tinder-card";
 
 export default function SwipePage() {
-  const [stamp, setStamp] = useState(null); 
+  const [stamp, setStamp] = useState(null);
   const navigate = useNavigate();
 
   const swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
-
     setTimeout(() => {
       setStamp(null);
     }, 300);
@@ -21,10 +19,6 @@ export default function SwipePage() {
     } else if (direction === "left") {
       setStamp("NOPE");
     }
-  };
-
-  const outOfFrame = (name) => {
-    console.log(name + " left the screen!");
   };
 
   const handleClick = (user) => {
@@ -163,7 +157,6 @@ export default function SwipePage() {
             key={user.id}
             onSwipeStart={(dir) => onSwipeStart(dir)}
             onSwipe={(dir) => swiped(dir, user.id)}
-            onCardLeftScreen={() => outOfFrame(user.id)}
           >
             <InfoWrapper onClick={() => handleClick(user)}>
               {stamp && <Stamp direction={stamp}>{stamp}</Stamp>}
