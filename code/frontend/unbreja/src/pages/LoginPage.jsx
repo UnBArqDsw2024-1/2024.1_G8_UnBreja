@@ -1,27 +1,26 @@
-import React from "react";
+import React, { useEffect, useNavigate, useState } from "react";
 import styled from "styled-components";
 import google_icon from "../assets/google_icon.png";
 import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
 import LoginForm from "../components/Login/LoginForm";
 import useAuth from "../hook/useAuth";
-import api from "../apis/api"
-
+import api from "../apis/api.js";
 
 export default function LoginPage() {
   const { auth, login } = useAuth();
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const data = JSON.stringify({
-        "email": username,
-        "senha": password
+        email: username,
+        senha: password
       });
 
       const promise = api.login({ data });
@@ -35,24 +34,23 @@ export default function LoginPage() {
       promise.catch(() => {
         setIsLoading(false);
 
-        alert('Erro, tente novamente');
+        alert("Erro, tente novamente");
       });
 
-      login({ token: response.data.token });
+      // login({ token: response.data.token });
 
       navigate("/combinacao");
     } catch (error) {
       console.error(error);
-      setError('Falha ao fazer login. Tente novamente.');
+      setError("Falha ao fazer login. Tente novamente.");
     }
-  }
+  };
 
   useEffect(() => {
     if (auth && auth.token) {
       navigate("/combinacao");
     }
   }, [auth, navigate]);
-
 
   return (
     <MainDiv>

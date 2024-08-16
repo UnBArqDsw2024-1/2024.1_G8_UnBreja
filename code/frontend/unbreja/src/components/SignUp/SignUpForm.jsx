@@ -3,7 +3,6 @@ import Input from "./SignUpInput";
 import Button from "../Button";
 
 function SignUpForm() {
-
   return (
     <div>
       <Input />
@@ -46,27 +45,26 @@ export default styled(SignUpForm)`
 
 const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: 12px; 
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
 `;
 
 const TextWrapper = styled.div`
-  margin-top: 20px; 
+  margin-top: 20px;
 
   p {
     font-size: 16px;
     color: #aa1945; /* Cor do texto "Já possui conta?" */
     margin-bottom: 10px; /* Espaço entre o texto e o botão */
-
   }
 `;
 
 const StyledButton = styled(Button)`
   background-color: white;
-  color: #aa1945; 
-  border: 2px solid #aa1945; 
+  color: #aa1945;
+  border: 2px solid #aa1945;
   &:hover {
     background-color: #f8f8f8;
   }

@@ -16,7 +16,7 @@ export default function SwipePage() {
 
     setTimeout(() => {
       setStamp(null);
-      
+
       const newProfiles = [...profiles];
       newProfiles.splice(currentIndex, 1);
       setProfiles(newProfiles);
