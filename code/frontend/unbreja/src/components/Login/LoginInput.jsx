@@ -1,13 +1,17 @@
+import React from "react";
 import styled from "styled-components";
 
-function Input({ className }) {
+function Input({ label, type, name, value, onChange, className }) {
   return (
     <div className={className} id="float-label">
-      <label htmlFor="email">E-mail</label>
-      <input type="email" />
-
-      <label htmlFor="senha">Senha</label>
-      <input type="senha" />
+      <label htmlFor={name}>{label}</label>
+      <input
+        id={name}
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 }

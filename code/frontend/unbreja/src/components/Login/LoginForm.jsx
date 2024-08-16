@@ -1,58 +1,60 @@
+import React from "react";
 import styled from "styled-components";
 import Input from "../Login/LoginInput";
 import { createButton } from "../Button";
 
-function LoginForm() {
+function LoginForm({ formData, onInputChange, onSubmit, isLoading, error }) {
   return (
-    <div>
-      <Input />
+    <FormContainer onSubmit={onSubmit}>
+      <Input
+        label="E-mail"
+        type="email"
+        name="username"
+        value={formData.username}
+        onChange={onInputChange}
+      />
+      <Input
+        label="Senha"
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={onInputChange}
+      />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       <ButtonWrapper>
-        {createButton('primary', '/login', 'Entrar com a minha conta')}
+        {createButton('primary', null, isLoading ? 'Carregando...' : 'Entrar com a minha conta')}
         <TextWrapper>
           <p>Não possui conta?</p>
           {createButton('secondary', '/cadastrar', 'Cadastrar')}
         </TextWrapper>
       </ButtonWrapper>
-    </div>
+    </FormContainer>
   );
 }
 
-export default styled(LoginForm)`
-  .terms-container {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+export default LoginForm;
 
-    label {
-      font-size: 16px;
-      margin-left: 50px;
-    }
-
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      appearance: none;
-      border-radius: 8px;
-      transform: scale(1.5);
-    }
-  }
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 const ButtonWrapper = styled.div`
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
 `;
 
 const TextWrapper = styled.div`
   margin-top: 5px;
-  
+
   p {
     font-size: 16px;
-    color: #AA1945;
+    color: #aa1945;
     margin-bottom: 5px;
   }
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 14px;
 `;
