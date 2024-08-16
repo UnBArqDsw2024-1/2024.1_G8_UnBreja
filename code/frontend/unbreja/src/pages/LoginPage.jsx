@@ -1,11 +1,12 @@
-import React, { useEffect, useNavigate, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import google_icon from "../assets/google_icon.png";
 import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
 import LoginForm from "../components/Login/LoginForm";
 import useAuth from "../hook/useAuth";
-import api from '../apis/api';
+import api from "../apis/api";
 
 export default function LoginPage() {
   const { auth, login } = useAuth();
@@ -17,41 +18,30 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
     try {
-      const data = JSON.stringify({
-        "email": username,
-        "senha": password
-      });
+      const data = {
+        email: username,
+        senha: password
+      };
 
-      const promise = api.login({ data });
-      promise.then((response) => {
-        setIsLoading(false);
-
-        console.log(response.data);
-        login({ token: response.data.token });
-        navigate("/combinacao");
-      });
-      promise.catch(() => {
-        setIsLoading(false);
-
-        alert('Erro, tente novamente');
-      });
-
-      // login({ token: response.data.token });
-
+      const response = await api.login({ data });
+      login({ token: response.data.token });
       navigate("/combinacao");
     } catch (error) {
-      console.error(error);
-      setError('Falha ao fazer login. Tente novamente.');
+      setError("Falha ao fazer login. Tente novamente.");
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     if (auth && auth.token) {
       navigate("/combinacao");
     }
   }, [auth, navigate]);
-
 
   return (
     <MainDiv>
@@ -64,7 +54,15 @@ export default function LoginPage() {
         <GoogleIcon src={google_icon} alt="Google Icon" />
         Login with Google
       </GoogleButton>
-      <LoginForm />
+      <LoginForm
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+        handleSubmit={handleSubmit}
+        isLoading={isLoading}
+        error={error}
+      />
     </MainDiv>
   );
 }
@@ -93,6 +91,5 @@ const GoogleButton = styled.button`
 const GoogleIcon = styled.img`
   margin-right: 10px;
   width: 15px;
-  heigth: 15px;
+  height: 15px;
 `;
-
