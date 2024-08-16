@@ -90,7 +90,7 @@ export default function SignUpPage() {
     try {
       const response = await api.register({ ...formData });
       setIsLoading(false);
-      register(response.data);
+
       navigate("/combinacao");
     } catch (error) {
       setIsLoading(false);
