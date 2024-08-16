@@ -38,7 +38,15 @@ open class Usuario(
     )
     open var interesses: MutableSet<Interesse> = mutableSetOf(),
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = [CascadeType.MERGE, CascadeType.PERSIST])
+    @ManyToOne(fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
     @JoinColumn(name = "universidade_id", nullable = false)
     open var universidade: Universidade,
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = [CascadeType.MERGE, CascadeType.PERSIST])
+    @JoinTable(
+        name = "match_usuarios",
+        joinColumns = [JoinColumn(name = "usuario_origem_id")],
+        inverseJoinColumns = [JoinColumn(name = "usuario_destino_id")]
+    )
+    open var matches: MutableSet<Usuario> = mutableSetOf(),
 )

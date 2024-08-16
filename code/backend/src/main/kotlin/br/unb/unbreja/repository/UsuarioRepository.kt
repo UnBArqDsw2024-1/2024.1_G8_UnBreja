@@ -8,6 +8,6 @@ interface UsuarioRepository : JpaRepository<Usuario, Long> {
     fun findByEmail(email: String): Usuario?
     fun existsByEmail(email: String): Boolean
 
-    @Query("SELECT u FROM Usuario u JOIN FETCH u.universidade JOIN FETCH u.interesses")
+    @Query("SELECT u FROM Usuario u LEFT JOIN FETCH u.universidade LEFT JOIN FETCH u.interesses LEFT JOIN FETCH u.matches ORDER BY u.id")
     fun findAllFetch(): List<Usuario>
 }

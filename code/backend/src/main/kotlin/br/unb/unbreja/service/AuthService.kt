@@ -10,7 +10,6 @@ import br.unb.unbreja.repository.UsuarioRepository
 import org.springframework.http.HttpStatus
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
-import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.server.ResponseStatusException
 
 @Service
@@ -20,7 +19,6 @@ class AuthService(
     private val universidadeRepository: UniversidadeRepository,
     private val passwordEncoder: PasswordEncoder,
     private val jwtService: JwtService,
-    private val bucketService: BucketService,
 ) {
     fun login(loginRequest: LoginRequestDTO): TokenResponseDTO {
         val usuario = usuarioRepository.findByEmail(loginRequest.email)
@@ -65,14 +63,5 @@ class AuthService(
         val token = jwtService.sign(newUser.id!!, newUser.isAdmin)
 
         return TokenResponseDTO(token, newUser.fotoUsuario, newUser.isAdmin)
-    }
-
-    fun updateProfilePicture(userId: Long, profilePicture: MultipartFile) {
-        val usuario = usuarioRepository.findById(userId)
-            .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado") }
-
-        usuario.fotoUsuario = bucketService.upload(profilePicture)
-
-        usuarioRepository.save(usuario)
     }
 }

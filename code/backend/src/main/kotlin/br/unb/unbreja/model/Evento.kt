@@ -16,5 +16,5 @@ open class Evento(
     open var descEvento: String,
 
     @Column(nullable = false, length = 255)
-    open var fotoEvento: String,
+    open var fotoEvento: String? = null,
 )

@@ -11,6 +11,9 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: ${DEBUG:true}
+  mvc:
+    problemdetails:
+      enabled: true
 jwt:
   secret: ${JWT_SECRET:segredo-super-secretosecretosecretosecretosecretosecretosecretosecreto}
 image-folder: ${IMAGE_FOLDER}

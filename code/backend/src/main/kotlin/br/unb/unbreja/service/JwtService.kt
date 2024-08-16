@@ -1,7 +1,7 @@
 package br.unb.unbreja.service
 
 import br.unb.unbreja.dto.TokenPayload
-import com.auth0.jwt.*
+import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.exceptions.JWTVerificationException
 import org.springframework.beans.factory.annotation.Value

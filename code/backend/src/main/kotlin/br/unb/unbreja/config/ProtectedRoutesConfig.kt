@@ -12,7 +12,7 @@ class ProtectedRoutesConfig {
         val filterRegistrationBean = FilterRegistrationBean<ProtectedRouteFilter>()
 
         filterRegistrationBean.filter = protectedRouteFilter
-        filterRegistrationBean.addUrlPatterns("/api/*", "/auth/update-profile-picture")
+        filterRegistrationBean.addUrlPatterns("/api/*")
 
         return filterRegistrationBean
     }
