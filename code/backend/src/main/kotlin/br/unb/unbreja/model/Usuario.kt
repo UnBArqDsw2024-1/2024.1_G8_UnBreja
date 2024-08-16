@@ -30,7 +30,7 @@ open class Usuario(
     @Column(nullable = false)
     open var isAdmin: Boolean = false,
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = [CascadeType.MERGE, CascadeType.PERSIST])
+    @ManyToMany(fetch = FetchType.LAZY, cascade = [CascadeType.MERGE, CascadeType.PERSIST])
     @JoinTable(
         name = "interesse_usuarios",
         joinColumns = [JoinColumn(name = "usuarios_id")],

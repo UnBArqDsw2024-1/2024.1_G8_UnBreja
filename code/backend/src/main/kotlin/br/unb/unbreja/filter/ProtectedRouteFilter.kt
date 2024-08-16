@@ -26,8 +26,9 @@ class ProtectedRouteFilter(
         val token = authorization.substring("Bearer ".length)
 
         try {
-            val userId = jwtService.decode(token)
-            request.setAttribute("userId", userId)
+            val payload = jwtService.decode(token)
+            request.setAttribute("userId", payload.userId)
+            request.setAttribute("isAdmin", payload.isAdmin)
         } catch (e: Exception) {
             throw ResponseStatusException(HttpStatus.UNAUTHORIZED)
         }

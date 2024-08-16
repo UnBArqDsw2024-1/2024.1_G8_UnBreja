@@ -1,8 +1,9 @@
 package br.unb.unbreja.service
 
-import io.jsonwebtoken.JwtException
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.security.Keys
+import br.unb.unbreja.dto.TokenPayload
+import com.auth0.jwt.*
+import com.auth0.jwt.algorithms.Algorithm
+import com.auth0.jwt.exceptions.JWTVerificationException
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -13,36 +14,37 @@ class JwtService {
     @Value("\${jwt.secret}")
     private var secretKey: String? = null
 
-    fun sign(userId: Long): String {
+    fun sign(userId: Long, isAdmin: Boolean): String {
         if (secretKey == null) {
             throw RuntimeException("JWT secret key is not defined")
         }
 
-        val key = Keys.hmacShaKeyFor(secretKey!!.toByteArray())
-
-        val token = Jwts.builder()
-            .subject(userId.toString())
-            .signWith(key, Jwts.SIG.HS256)
-            .compact()
+        val token = JWT.create()
+            .withSubject(userId.toString())
+            .withClaim("isAdmin", isAdmin)
+            .sign(Algorithm.HMAC256(secretKey))
 
         return token
     }
 
-    fun decode(token: String): Long {
+    fun decode(token: String): TokenPayload {
         if (secretKey == null) {
             throw RuntimeException("JWT secret key is not defined")
         }
 
-        val key = Keys.hmacShaKeyFor(secretKey!!.toByteArray())
-
-        val verifier = Jwts.parser()
-            .verifyWith(key)
+        val verifier = JWT.require(Algorithm.HMAC256(secretKey))
+            .withClaimPresence("sub")
+            .withClaimPresence("isAdmin")
             .build()
 
         try {
-            val decodedToken = verifier.parseSignedClaims(token)
-            return decodedToken.payload.subject.toLong()
-        } catch (e: JwtException) {
+            val decodedToken = verifier.verify(token)
+
+            return TokenPayload(
+                userId = decodedToken.subject.toLong(),
+                isAdmin = decodedToken.getClaim("isAdmin").asBoolean()
+            )
+        } catch (e: JWTVerificationException) {
             throw ResponseStatusException(HttpStatus.UNAUTHORIZED)
         }
     }

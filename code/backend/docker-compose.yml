@@ -8,6 +8,6 @@ services:
     ports:
       - "5440:5432"
     environment:
-        - POSTGRESQL_USERNAME=postgres
-        - POSTGRESQL_PASSWORD=password
-        - POSTGRESQL_DATABASE=unbreja
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=password
+      - POSTGRESQL_DATABASE=unbreja

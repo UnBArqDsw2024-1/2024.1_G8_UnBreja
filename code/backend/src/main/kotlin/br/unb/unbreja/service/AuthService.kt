@@ -30,9 +30,9 @@ class AuthService(
             throw ResponseStatusException(HttpStatus.UNAUTHORIZED)
         }
 
-        val token = jwtService.sign(usuario.id!!)
+        val token = jwtService.sign(usuario.id!!, usuario.isAdmin)
 
-        return TokenResponseDTO(token, usuario.fotoUsuario)
+        return TokenResponseDTO(token, usuario.fotoUsuario, usuario.isAdmin)
     }
 
 
@@ -62,9 +62,9 @@ class AuthService(
 
         usuarioRepository.save(newUser)
 
-        val token = jwtService.sign(newUser.id!!)
+        val token = jwtService.sign(newUser.id!!, newUser.isAdmin)
 
-        return TokenResponseDTO(token, newUser.fotoUsuario)
+        return TokenResponseDTO(token, newUser.fotoUsuario, newUser.isAdmin)
     }
 
     fun updateProfilePicture(userId: Long, profilePicture: MultipartFile) {
