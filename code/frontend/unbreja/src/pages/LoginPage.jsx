@@ -6,8 +6,56 @@ import Button from "../components/Button";
 import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
 import LoginForm from "../components/Login/LoginForm";
+import useAuth from "../hook/useAuth";
+import api from "../apis/api"
+
 
 export default function LoginPage() {
+  const { auth, login } = useAuth();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = JSON.stringify({
+        "email": username,
+        "senha": password
+      });
+
+      const promise = api.login({ data });
+      promise.then((response) => {
+        setIsLoading(false);
+
+        console.log(response.data);
+        login({ token: response.data.token });
+        navigate("/combinacao");
+      });
+      promise.catch(() => {
+        setIsLoading(false);
+
+        alert('Erro, tente novamente');
+      });
+
+      login({ token: response.data.token });
+
+      navigate("/combinacao");
+    } catch (error) {
+      console.error(error);
+      setError('Falha ao fazer login. Tente novamente.');
+    }
+  }
+
+  useEffect(() => {
+    if (auth && auth.token) {
+      navigate("/combinacao");
+    }
+  }, [auth, navigate]);
+
+
   return (
     <MainDiv>
       <Elipse top="-350px" />
