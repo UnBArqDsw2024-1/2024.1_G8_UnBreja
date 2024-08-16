@@ -1,19 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import InitialPage from "./pages/InitialPage";
-import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import ProfilePage from "./pages/ProfilePage";
+import DescriptionProfilePage from "./pages/DescriptionProfilePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<InitialPage />} />
-        <Route path="/entrar" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastrar" element={<SignUpPage />} />{" "}
-        {/* Rotas ajustadas */}
         <Route path="/perfil" element={<ProfilePage />} />
+        <Route
+          path="/descricaoperfil/usuario"
+          element={<DescriptionProfilePage />}
+        />
       </Routes>
     </BrowserRouter>
   );

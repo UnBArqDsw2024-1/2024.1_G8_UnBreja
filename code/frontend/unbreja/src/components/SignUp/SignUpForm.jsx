@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Input from "./Input";
-import Button from "../components/Button";
+import Input from "./SignUpInput";
+import Button from "../Button";
 
 function SignUpForm() {
     return (
@@ -16,7 +16,7 @@ function SignUpForm() {
                 <Button to="/">Cadastrar</Button>
                 <TextWrapper>
                     <p>Já possui conta?</p>
-                    <StyledButton to="/">Entrar com minha conta</StyledButton>
+                    <StyledButton to="/login">Entrar com minha conta</StyledButton>
                 </TextWrapper>
             </ButtonWrapper>
         </div>

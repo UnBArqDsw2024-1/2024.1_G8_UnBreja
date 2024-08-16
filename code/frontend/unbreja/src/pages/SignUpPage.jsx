@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import google_icon from "../assets/google_icon.png"
+import google_icon from "../assets/google_icon.png";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
-import SignUpForm from "../components/SignUpForm";
+import SignUpForm from "../components/SignUp/SignUpForm";
 
 export default function SignUpPage() {
   return (
