@@ -12,6 +12,8 @@
   - [Ata da Reunião 03/04/2024](/Reunioes/reuniao_03-04-2024.md)
   - [Ata da Reunião 05/07/2024](/Reunioes/reuniao_05-07-2024.md)
   - [Ata da Reunião 08/07/2024](/Reunioes/reuniao_08-07-2024.md)
+  - [Ata da Reunião 06/08/2024](/Reunioes/reuniao_06-08-2024.md)
+  - [Ata da Reunião 15/08/2024](/Reunioes/reuniao_15-08-2024.md)
 
 - **Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
