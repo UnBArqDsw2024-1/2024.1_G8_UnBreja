@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: unbreja
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5440/unbreja}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWORD:password}
+  flyway:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: ${DEBUG:true}
+  mvc:
+    problemdetails:
+      enabled: true
+jwt:
+  secret: ${JWT_SECRET:segredo-super-secretosecretosecretosecretosecretosecretosecretosecreto}
+image-folder: ${IMAGE_FOLDER}

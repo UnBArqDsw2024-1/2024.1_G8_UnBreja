@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class UnbrejaApplication
 
 fun main(args: Array<String>) {
-	runApplication<UnbrejaApplication>(*args)
+    runApplication<UnbrejaApplication>(*args)
 }
