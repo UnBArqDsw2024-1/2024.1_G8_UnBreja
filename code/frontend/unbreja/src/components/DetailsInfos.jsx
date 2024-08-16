@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 export default function DetailsInfos({ infos }) {
-
   const formatList = (list) => {
     if (list.length === 1) return list[0].nome;
-    return `${list.slice(0, -1).map(item => item.nome).join(", ")} e ${list[list.length - 1].nome}.`;
+    return `${list
+      .slice(0, -1)
+      .map((item) => item.nome)
+      .join(", ")} e ${list[list.length - 1].nome}.`;
   };
 
   return (
@@ -21,7 +23,6 @@ export default function DetailsInfos({ infos }) {
     </MainDiv>
   );
 }
-
 
 const MainDiv = styled.div`
   position: relative;
