@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/interesses")
+@RequestMapping("/auth/interesses")
 @Tag(name = "Interesses", description = "Operações relacionadas a interesses")
 class InteresseController(private val interesseService: InteresseService) {
 

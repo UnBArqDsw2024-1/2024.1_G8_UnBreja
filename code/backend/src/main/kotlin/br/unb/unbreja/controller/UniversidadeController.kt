@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/universidades")
+@RequestMapping("/auth/universidades")
 @Tag(name = "Universidades", description = "Operações relacionadas a universidades")
 class UniversidadeController(private val universidadeService: UniversidadeService) {
 
