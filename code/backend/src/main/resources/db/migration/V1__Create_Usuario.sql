@@ -21,7 +21,7 @@ CREATE TABLE usuario
     descricao       VARCHAR(300),
     senha           VARCHAR(100) NOT NULL,
     dt_nascimento   TIMESTAMP    NOT NULL,
-    foto_usuario    VARCHAR(255) NOT NULL,
+    foto_usuario    VARCHAR(255),
     universidade_id BIGINT,
     is_admin        BOOLEAN      NOT NULL DEFAULT FALSE,
     CONSTRAINT pk_usuario PRIMARY KEY (id),

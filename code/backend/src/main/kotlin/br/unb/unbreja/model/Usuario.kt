@@ -24,8 +24,8 @@ open class Usuario(
     @Column(nullable = false)
     open var dtNascimento: Date,
 
-    @Column(nullable = false, length = 255)
-    open var fotoUsuario: String,
+    @Column(length = 255)
+    open var fotoUsuario: String? = null,
 
     @Column(nullable = false)
     open var isAdmin: Boolean = false,

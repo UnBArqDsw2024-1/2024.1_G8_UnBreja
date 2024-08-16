@@ -1,7 +1,7 @@
 package br.unb.unbreja.model
 
 import jakarta.persistence.*
-import java.util.Date
+import java.util.*
 
 @Entity
 open class Evento(
