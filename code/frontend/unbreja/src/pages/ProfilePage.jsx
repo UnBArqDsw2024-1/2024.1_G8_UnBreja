@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { createButton } from "../components/Button";
 import Elipse from "../components/Elipse";
 import PageHeader from "../components/PageHeader";
+import api from "../apis/api";
 
 export default function ProfilePage() {
   const campuses = [
@@ -39,21 +40,77 @@ export default function ProfilePage() {
     "Park Way"
   ];
 
+  const interessesOptions = [
+    "Relacionamento", 
+    "O que der veio", 
+    "Amizades", 
+    "Esportes", 
+    "Sair para beber", 
+    "Festas", 
+    "Encontrar um grupo", 
+    "Animais"
+  ];
+
+  const [campus, setCampus] = useState(campuses[0]);
+  const [region, setRegion] = useState(regions[0]);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [interessesChecked, setInteressesChecked] = useState([]);
+
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+
+    if (checked) {
+      setInteressesChecked((prevInteresses) => [...prevInteresses, value]);
+    } else {
+      setInteressesChecked((prevInteresses) =>
+        prevInteresses.filter((interesse) => interesse !== value)
+      );
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const userData = {
+      nomeCompleto: "Seu Nome Completo", // Ajuste conforme necessário
+      descricao: "Sua Descrição", // Ajuste conforme necessário
+      dtNascimento: "2024-08-16T12:01:21.983Z", // Ajuste conforme necessário
+      universidade: {
+        sigla: campus,
+        campus: region,
+      },
+      interesses: interessesChecked,
+    };
+
+    try {
+      await api.updatePerfil(userData); // Substitua pelo endpoint correto
+      alert('Usuário atualizado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao atualizar usuário:', error);
+    }
+  };
+
   return (
     <MainDiv>
       <ElipseWrapper>
         <Elipse top="-350px" />
       </ElipseWrapper>
-      <PageHeaderWrapper><PageHeader
-        title="Perfil"
-        subtitle="Informações e preferências"
-      /></PageHeaderWrapper>
+      <PageHeaderWrapper>
+        <PageHeader
+          title="Perfil"
+          subtitle="Informações e preferências"
+        />
+      </PageHeaderWrapper>
       
       <ProfileCard>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <InputGroup>
             <Label htmlFor="campus">Campus</Label>
-            <Select id="campus">
+            <Select 
+              id="campus" 
+              value={campus} 
+              onChange={(e) => setCampus(e.target.value)}
+            >
               {campuses.map((campus) => (
                 <option key={campus} value={campus}>
                   {campus}
@@ -64,7 +121,11 @@ export default function ProfilePage() {
 
           <InputGroup>
             <Label htmlFor="region">Região</Label>
-            <Select id="region">
+            <Select 
+              id="region" 
+              value={region} 
+              onChange={(e) => setRegion(e.target.value)}
+            >
               {regions.map((region) => (
                 <option key={region} value={region}>
                   {region}
@@ -79,54 +140,37 @@ export default function ProfilePage() {
               type="text"
               id="phoneNumber"
               placeholder="Ex: (61) 99999-9999"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </InputGroup>
 
           <InterestGroup>
             <InterestTitle>Quais seus interesses</InterestTitle>
             <CheckboxWrapper>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Relacionamentos
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />O que der veio
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Amizades
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Esportes
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Sair pra beber
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Festas
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Encontrar um Grupo
-              </CheckboxLabel>
-              <CheckboxLabel>
-                <Checkbox type="checkbox" />
-                Animais
-              </CheckboxLabel>
+              {interessesOptions.map((interesse) => (
+                <CheckboxLabel key={interesse}>
+                  <Checkbox 
+                    type="checkbox" 
+                    value={interesse}
+                    onChange={handleCheckboxChange}
+                  />
+                  {interesse}
+                </CheckboxLabel>
+              ))}
             </CheckboxWrapper>
           </InterestGroup>
-          <ButtonWrapper>{createButton('primary', '/login', 'Continuar')}</ButtonWrapper>    
           
+          <ButtonWrapper>
+            {createButton('primary', '#', 'Atualizar Perfil', 'submit')}
+          </ButtonWrapper>      
         </Form>
       </ProfileCard>
     </MainDiv>
   );
 }
 
-
+// Estilização permanece a mesma conforme fornecido anteriormente
 const MainDiv = styled.div`
   font-family: "Inter", sans-serif;
   width: 414px;
@@ -138,7 +182,6 @@ const MainDiv = styled.div`
   background-color: #f0f0f0;
 `;
 
-
 const ProfileCard = styled.div`
   background-color: white;
   padding: 20px;
@@ -147,16 +190,6 @@ const ProfileCard = styled.div`
   text-align: center;
   max-width: 400px;
   width: 100%;
-`;
-
-const Title = styled.h1`
-  color: #4a148c;
-  margin-bottom: 10px;
-`;
-
-const Subtitle = styled.p`
-  color: #666;
-  margin-bottom: 20px;
 `;
 
 const Form = styled.form`
@@ -170,10 +203,10 @@ const InputGroup = styled.div`
 
 const Label = styled.label`
   font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #aa1945;
-    pointer-events: none;
-    line-height: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #aa1945;
+  pointer-events: none;
+  line-height: 24px;
 `;
 
 const Input = styled.input`
@@ -219,7 +252,6 @@ const Checkbox = styled.input`
   margin-right: 10px;
 `;
 
-
 const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 12px;
@@ -239,6 +271,5 @@ const PageHeaderWrapper = styled.div`
   position: absolute;
   top: -25px;
   left: -20px; 
- 
 `;
 

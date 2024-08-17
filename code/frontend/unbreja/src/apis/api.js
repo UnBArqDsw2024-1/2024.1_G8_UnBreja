@@ -11,7 +11,6 @@ function login(body) {
 }
 
 function register(body) {
-  console.log(body)
   return axios.post(`${BASE_URL}/auth/signup`, body);
 }
 
@@ -23,11 +22,16 @@ function getInteresses() {
   return axios.get(`${BASE_URL}/auth/interesses`);
 }
 
+function updatePerfil(usuario){
+  return axios.put(`${BASE_URL}/api/usuarios`, usuario);
+}
+
 const api = {
   login,
   register,
   getUniversidades,
   getInteresses,
+  updatePerfil
 };
 
 export default api;

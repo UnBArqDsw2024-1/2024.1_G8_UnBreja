@@ -2,11 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ButtonComponent = ({ className, children, ...props }) => (
-  <Link className={className} {...props}>
-    {children}
-  </Link>
-);
+// ButtonComponent agora pode renderizar tanto um <Link> quanto um <button>
+const ButtonComponent = ({ className, children, as, ...props }) => {
+  if (as === "button") {
+    return (
+      <button className={className} {...props}>
+        {children}
+      </button>
+    );
+  } else {
+    return (
+      <Link className={className} {...props}>
+        {children}
+      </Link>
+    );
+  }
+};
 
 const PrimaryButton = styled(ButtonComponent)`
   background-color: #aa1945;
@@ -53,11 +64,19 @@ const SecondaryButton = styled(ButtonComponent)`
   }
 `;
 
-export function createButton(type, to, children) {
+export function createButton(type, to, children, buttonType = "button") {
   if (type === 'primary') {
-    return <PrimaryButton to={to}>{children}</PrimaryButton>;
+    return (
+      <PrimaryButton as={buttonType === "submit" ? "button" : Link} to={to} type={buttonType}>
+        {children}
+      </PrimaryButton>
+    );
   } else if (type === 'secondary') {
-    return <SecondaryButton to={to}>{children}</SecondaryButton>;
+    return (
+      <SecondaryButton as={buttonType === "submit" ? "button" : Link} to={to} type={buttonType}>
+        {children}
+      </SecondaryButton>
+    );
   } else {
     throw new Error("Tipo de botão desconhecido");
   }
